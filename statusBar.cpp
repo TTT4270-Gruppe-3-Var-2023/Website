@@ -31,7 +31,7 @@ private:
   double waitingMinutes;
   //string category;
 public:
-  Status(double wm, string c):waitingMinutes{wm},category{c},s{}{
+  Status(double wm):waitingMinutes{wm},s{}{
     if()//kalkulerer hvilken fargestatus som tilhører objektet utifra hvor lang ventetiden er.
       c = Color::green || Color::yellow || Color::red; //Grønn->Ledige plasser, Gul->Kort ventetid, -> Rød->Lang ventetid   
   }
