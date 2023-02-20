@@ -25,7 +25,7 @@ toiletLocation3(){
   //Returnerer køstatus.
 }
 
-class Status{
+class StatusByCategory{
 private:
   Color s;
   double waitingMinutes;
