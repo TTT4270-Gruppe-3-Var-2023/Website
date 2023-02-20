@@ -5,6 +5,10 @@
 barOrToilets(){
 }
 
+//Display av informasjon og status
+statusShow(){
+}
+
 //Henter tilstandsrapport for alle toaletter.
 toiletLocationsStatus(){
   vector<Status> statusAllLocations = {
