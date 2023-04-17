@@ -7,7 +7,83 @@
     </header>
     
     <head>
+        <style>
+            #div_bar {
+                display: none;
+            }
+            #div_toilet {
+                display: block;
+            }
+            p,h1,h2,label {
+                color: white;
+            }
+            .herredo {
+                background-color: red;
+                width: 5%;
+                height: 1.5%;
+                border-radius: 15%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+            }
+            .damedo {
+                background-color: green;
+                width: 5%;
+                height: 1.5%;
+                border-radius: 15%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+            }
+            .handicapdo {
+                background-color: green;
+                width: 5%;
+                height: 1.5%;
+                border-radius: 15%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+            }
+            .icon {
+                width: 20%;
+                padding-left: 0px;
+                padding-right: 10px;
+                margin: 0;
+            }
+            .damedo p {
+                color: white;
+                padding: 0;
+                margin: 0;
+                font-size: 1vw;
+            }
+            .herredo p {
+                color: white;
+                padding: 0;
+                margin: 0;
+                font-size: 1vw;
+            }
+            .handicapdo p {
+                color: white;
+                padding: 0;
+                margin: 0;
+                font-size: 1vw;
+            }
+
+
+        </style>
         <script>
+            function random(start, stop) {
+                return Math.round(Math.random()*(stop-start) + start);
+            }
             
             
             function myFunction() {
@@ -28,8 +104,20 @@
                 div_toilet.style.display = "none";                
                 div_bar.style.display = "block";
             }
-            function random(start, stop) {
-                return Math.round(Math.random()*(stop-start) + start);
+            function showMale(){
+                document.getElementById("main-herredo").style.display = "block";
+                document.getElementById("main-damedo").style.display = "none";
+                document.getElementById("main-handicap").style.display = "none";
+            }
+            function showFemale(){
+                document.getElementById("main-damedo").style.display = "block";
+                document.getElementById("main-herredo").style.display = "none";
+                document.getElementById("main-handicap").style.display = "none";
+            }
+            function showHandicap(){
+                document.getElementById("main-handicap").style.display = "block";
+                document.getElementById("main-herredo").style.display = "none";
+                document.getElementById("main-damedo").style.display = "none";
             }
         </script>
     </head>
@@ -38,13 +126,13 @@
 
 
 
-    <body>
+    <body onload="showToilett()" style="background-color: black;">
         <div>
             <h1 class="text-center">Trondheim Spektrum</h1>
             <h2 class="text-center">Fasiliteter:</h2>
             <div class="text-center">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="showToilett()">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="showToilett()" checked>
                     <label class="form-check-label" for="inlineRadio1">Toalett</label>
                 </div>
                 <div class="form-check form-check-inline">
@@ -55,17 +143,129 @@
 
                   <button type="button" onclick="myFunction()">Update</button>
                 <div id="div_toilet" style.display="block">  
-                    <a href="#" class="btn btn-success" id="herre">Herredo</a>
-                    <a href="#" class="btn btn-success" id="dame">Damedo</a>
+                    <a onclick="showMale()" class="btn btn-success" id="herre">Herredo</a>
+                    <a onclick="showFemale()" class="btn btn-success" id="dame">Damedo</a>
+                    <a onclick="showHandicap()" class="btn btn-success" id="handicap">Handicap</a>
+                     
+                <!-- </div> -->
                 </div>
-                <div id="div_bar" style.display="none">  
-                    <a href="#" class="btn btn-success" id="herre">Bar A</a>
-                    <a href="#" class="btn btn-success" id="dame">Bar B</a>
+                <div id="div_bar">  
+                    <a href="#" class="btn btn-success" id="bar_A">Bar A</a>
+                    <a href="#" class="btn btn-success" id="bar_B">Bar B</a>
+        
                 </div>
-    
-            </div>
             <p id="demo"></p>
-            <img class="img-fluid" src="bilde3.jpg" alt="Trondheim Spektrum">
+            <div style="position: relative;">
+                <img class="img-fluid" src="figures/spektrum.svg" alt="Trondheim Spektrum">
+                <div id="main-herredo" style="display: none;">
+
+                    <div class="herredo" style="top: 10%; left: 7.8%;">
+                        <img class="img-fluid icon" src="figures/Toilets_male.svg" style="height: 80%; padding: 0; margin: 0;" alt="Male Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="herredo" style="top: 30%; left: 7.8%;">
+                        <img class="img-fluid icon" src="figures/Toilets_male.svg" style="height: 80%; padding: 0; margin: 0;" alt="Male Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="herredo" style="top: 40%; left: 7.8%;">
+                        <img class="img-fluid icon" src="figures/Toilets_male.svg" style="height: 80%; padding: 0; margin: 0;" alt="Male Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+
+
+                    <div class="herredo" style="top: 13%; left: 56%;">
+                        <img class="img-fluid icon" src="figures/Toilets_male.svg" style="height: 80%; padding: 0; margin: 0;" alt="Male Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="herredo" style="top: 18%; left: 56%;">
+                        <img class="img-fluid icon" src="figures/Toilets_male.svg" style="height: 80%; padding: 0; margin: 0;" alt="Male Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="herredo" style="top: 46%; left: 56%;">
+                        <img class="img-fluid icon" src="figures/Toilets_male.svg" style="height: 80%; padding: 0; margin: 0;" alt="Male Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="herredo" style="top: 84%; left: 23%;">
+                        <img class="img-fluid icon " src="figures/Toilets_male.svg" style="height: 80%; padding: 0; margin: 0;" alt="Male Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    
+                </div>
+                <div id="main-damedo" style="display: none;">
+                    <div class="damedo" style="top: 10%; left: 7.8%;">
+                        <img class="img-fluid icon" src="figures/Toilets_female.svg" style="height: 80%; padding: 0; margin: 0;" alt="Female Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="damedo" style="top: 30%; left: 7.8%;">
+                        <img class="img-fluid   icon" src="figures/Toilets_female.svg" style="height: 80%; padding: 0; margin: 0;" alt="Female Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="damedo" style="top: 40%; left: 7.8%;">
+                        <img class="img-fluid  icon" src="figures/Toilets_female.svg" style="height: 80%; padding: 0; margin: 0;" alt="Female Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+
+
+
+                    <div class="damedo" style="top: 13%; left: 56%;">
+                        <img class="img-fluid icon" src="figures/Toilets_female.svg" style="height: 80%; padding: 0; margin: 0;" alt="Female Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="damedo" style="top: 18%; left: 56%;">
+                        <img class="img-fluid  icon" src="figures/Toilets_female.svg" style="height: 80%; padding: 0; margin: 0;" alt="Female Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="damedo" style="top: 46%; left: 56%;">
+                        <img class="img-fluid icon " src="figures/Toilets_female.svg" style="height: 80%; padding: 0; margin: 0;" alt="Female Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    
+                    <div class="damedo" style="top: 84%; left: 23%;">
+                        <img class="img-fluid icon " src="figures/Toilets_female.svg" style="height: 80%; padding: 0; margin: 0;" alt="Female Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p> 
+                    </div>
+                </div>
+                <div id="main-handicap" style="display: none;">
+                    <div class="handicapdo" style="top: 10%; left: 7.8%;">
+                        <img class="img-fluid icon" src="figures/Toilets_handicap.svg" style="height: 80%; padding: 0; margin: 0;" alt="Handicap Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="handicapdo" style="top: 17%; left: 7.8%;">
+                        <img class="img-fluid   icon" src="figures/Toilets_handicap.svg" style="height: 80%; padding: 0; margin: 0;" alt="Handicap Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="handicapdo" style="top: 40%; left: 7.8%;">
+                        <img class="img-fluid  icon" src="figures/Toilets_handicap.svg" style="height: 80%; padding: 0; margin: 0;" alt="Handicap Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+
+
+
+                    <div class="handicapdo" style="top: 13%; left: 56%;">
+                        <img class="img-fluid icon" src="figures/Toilets_handicap.svg" style="height: 80%; padding: 0; margin: 0;" alt="Handicap Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="handicapdo" style="top: 30%; left: 56%;">
+                        <img class="img-fluid  icon" src="figures/Toilets_handicap.svg" style="height: 80%; padding: 0; margin: 0;" alt="Handicap Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <div class="handicapdo" style="top: 46%; left: 56%;">
+                        <img class="img-fluid icon " src="figures/Toilets_handicap.svg" style="height: 80%; padding: 0; margin: 0;" alt="Handicap Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+                    <!-- <div class="handicapdo" style="top: 83.2%; left: 50%;">
+                        <img class="img-fluid icon " src="figures/Toilets_handicap.svg" style="height: 80%; padding: 0; margin: 0;" alt="Handicap Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div> -->
+                    <div class="handicapdo" style="top: 84%; left: 23%;">
+                        <img class="img-fluid icon " src="figures/Toilets_handicap.svg" style="height: 80%; padding: 0; margin: 0;" alt="Handicap Toilet">
+                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                    </div>
+
+                </div>
+            </div>
+            
+</div>
         </div>
     
 
