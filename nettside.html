@@ -17,6 +17,9 @@
             p,h1,h2,label {
                 color: white;
             }
+            a{
+                font-size: 2vw;
+            }
             .herredo {
                 background-color: red;
                 width: 5%;
@@ -42,7 +45,7 @@
                 position: absolute;
             }
             .handicapdo {
-                background-color: green;
+                background-color: blue;
                 width: 5%;
                 height: 1.5%;
                 border-radius: 15%;
@@ -55,6 +58,12 @@
             }
             .icon {
                 width: 20%;
+                padding-left: 0px;
+                padding-right: 10px;
+                margin: 0;
+            }
+            .icon2 {
+                width: 10%;
                 padding-left: 0px;
                 padding-right: 10px;
                 margin: 0;
@@ -143,9 +152,15 @@
 
                   <button type="button" onclick="myFunction()">Update</button>
                 <div id="div_toilet" style.display="block">  
-                    <a onclick="showMale()" class="btn btn-success" id="herre">Herredo</a>
-                    <a onclick="showFemale()" class="btn btn-success" id="dame">Damedo</a>
-                    <a onclick="showHandicap()" class="btn btn-success" id="handicap">Handicap</a>
+                    <a onclick="showMale()" class="btn btn-success" id="herre" style="width: 15%; height: 50%;">
+                        <img class="icon2" src="figures/Toilets_male.svg" style=" width: 7%; padding: 0; margin: 0;" alt="Male Toilet">
+                        Herre</a>
+                    <a onclick="showFemale()" class="btn btn-success" id="dame" style="width: 15%; height: 50%;">
+                        <img class="icon2" src="figures/Toilets_female.svg" style="width: 8%; padding: 0; margin: 0;" alt="Female Toilet">
+                        Dame</a>
+                    <a onclick="showHandicap()" class="btn btn-success" id="handicap" style="width: 15%; height: 50%;">
+                        <img class="icon2" src="figures/Toilets_handicap.svg" style="width: 10%; padding: 0; margin: 0;" alt="Handicap Toilet">
+                        Handicap</a>
                      
                 <!-- </div> -->
                 </div>
