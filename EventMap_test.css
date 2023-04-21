@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+  }
+  h1 {
+    background-color: beige;
+    color: black;
+  }
+  #restrooms {
+    display: flex;
+    flex-flow: row wrap;
+    width
+  }
+
+  .restroom {
+    flex: 0 0 150px;
+    flex-flow: row wrap;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+  }
