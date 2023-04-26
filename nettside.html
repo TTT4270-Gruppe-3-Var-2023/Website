@@ -21,18 +21,6 @@
                 font-size: 2vw;
             }
             .mens_toilets {
-                background-color: red;
-                width: 5%;
-                height: 1.5%;
-                border-radius: 15%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 0;
-                margin: 0;
-                position: absolute;
-            }
-            .ladies_toilets {
                 background-color: green;
                 width: 5%;
                 height: 1.5%;
@@ -44,8 +32,20 @@
                 margin: 0;
                 position: absolute;
             }
+            .ladies_toilets {
+                background-color: yellowgreen;
+                width: 5%;
+                height: 1.5%;
+                border-radius: 15%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+            }
             .handicap_toilets {
-                background-color: blue;
+                background-color: red;
                 width: 5%;
                 height: 1.5%;
                 border-radius: 15%;
@@ -86,7 +86,10 @@
                 margin: 0;
                 font-size: 1vw;
             }
-
+            .btn{
+                width: 20%;
+                height: 50%;
+            }
 
         </style>
         <script>
@@ -96,8 +99,8 @@
             
             
             function myFunction() {
-                document.getElementById("dame").innerHTML = "Damedo: "+random(0,10) + " min";
-                document.getElementById("herre").innerHTML = "Herredo: "+random(0,10) + " min";
+                document.getElementById("btn_ladies").innerHTML = "Damedo: "+random(0,10) + " min";
+                document.getElementById("btn-mens").innerHTML = "Herredo: "+random(0,10) + " min";
                 document.getElementById("bar a").innerHTML = "Bar A: "+random(0,10) + " min";
             }
             
@@ -125,8 +128,8 @@
                 } else {
                     x.style.display = "none";
                 }
-                document.getElementById('herre').classList.toggle('btn-success');
-                document.getElementById('herre').classList.toggle('btn-secondary');
+                document.getElementById('btn-mens').classList.toggle('btn-success');
+                document.getElementById('btn-mens').classList.toggle('btn-secondary');
             }
             function showFemale(){
                 var x = document.getElementById("main-ladies_toilets");
@@ -135,8 +138,8 @@
                 } else {
                     x.style.display = "none";
                 }                
-                document.getElementById('dame').classList.toggle('btn-success');
-                document.getElementById('dame').classList.toggle('btn-secondary');
+                document.getElementById('btn_ladies').classList.toggle('btn-success');
+                document.getElementById('btn_ladies').classList.toggle('btn-secondary');
             }
             function showHandicap(){
                 var x = document.getElementById("main-handicap");
@@ -145,8 +148,8 @@
                 } else {
                     x.style.display = "none";
                 }          
-                document.getElementById('handicap').classList.toggle('btn-success');
-                document.getElementById('handicap').classList.toggle('btn-secondary');
+                document.getElementById('btn_handicap').classList.toggle('btn-success');
+                document.getElementById('btn_handicap').classList.toggle('btn-secondary');
             }
         </script>
     </head>
@@ -160,27 +163,30 @@
             <h1 class="text-center">Trondheim Spektrum</h1>
             <h2 class="text-center">Fasiliteter:</h2>
             <div class="text-center">
-                <div class="form-check form-check-inline">
+                <!-- <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" onclick="showToilett()" checked>
                     <label class="form-check-label" for="inlineRadio1">Toalett</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" onclick="showBar()">
                     <label class="form-check-label" for="inlineRadio2">Bar</label>
-                </div>
+                </div> -->
 
 
                   <!-- <button type="button" onclick="myFunction()">Update</button> -->
                 <div id="div_toilet" style.display="block">  
-                    <a onclick="showMale()" class="btn btn-success" id="herre" style="width: 25%; height: 50%;">
+                    <a onclick="showMale()" class="btn btn-success" id="btn-mens">
                         <img class="icon2" src="figures/Toilets_male.svg" style=" width: 7%; padding: 0; margin: 0;" alt="Mens Toilets">
                         Herre</a>
-                    <a onclick="showFemale()" class="btn btn-success" id="dame" style="width: 25%; height: 50%;">
+                    <a onclick="showFemale()" class="btn btn-success" id="btn_ladies">
                         <img class="icon2" src="figures/Toilets_female.svg" style="width: 8%; padding: 0; margin: 0;" alt="Ladies Toilets">
                         Dame</a>
-                    <a onclick="showHandicap()" class="btn btn-success" id="handicap" style="width: 25%; height: 50%;">
+                    <a onclick="showHandicap()" class="btn btn-success" id="btn_handicap" >
                         <img class="icon2" src="figures/Toilets_handicap.svg" style="width: 15%; padding: 0; margin: 0;" alt="Handicap Toilets">
-                        Handicap</a>
+                        HC</a>
+                    <a onclick="showHandicap()" class="btn btn-success" id="bar">
+                        <img class="icon2" src="figures/Bar.svg" style="width: 15%; padding: 0; margin: 0;" alt="Bar">
+                        Bar</a>
                      
                 <!-- </div> -->
                 </div>
@@ -206,7 +212,7 @@
                         </div>
                         <div class="mens_toilets" id="mens_2" style="top: 41.5%; left: 7.8%;">
                             <img class="img-fluid icon" src="figures/Toilets_male.svg" style="height: 80%; padding: 0; margin: 0;" alt="Mens Toilet">
-                            <p style="padding: 1%; margin: 1%;">5 min</p>
+                            <p style="padding: 1%; margin: 1%;">0 min</p>
                         </div>
                         
                         
@@ -239,7 +245,7 @@
                     </div>
                     <div class="ladies_toilets" id="ladies_2" style="top: 40%; left: 7.8%;">
                         <img class="img-fluid  icon" src="figures/Toilets_female.svg" style="height: 80%; padding: 0; margin: 0;" alt="Ladies Toilet">
-                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                        <p style="padding: 1%; margin: 1%;">0 min</p>
                     </div>
                     
                     <div class="ladies_toilets" id="ladies_3" style="top: 10%; left: 56%;">
@@ -271,7 +277,7 @@
                     </div>
                     <div class="handicap_toilets" id="handicap_2" style="top: 43%; left: 7.8%;">
                         <img class="img-fluid  icon" src="figures/Toilets_handicap.svg" style="height: 80%; padding: 0; margin: 0;" alt="Handicap Toilet">
-                        <p style="padding: 1%; margin: 1%;">5 min</p>
+                        <p style="padding: 1%; margin: 1%;">0 min</p>
                     </div>
                     
                     
