@@ -56,6 +56,23 @@
                 margin: 0;
                 position: absolute;
             }
+            .bar {
+                background-color: red;
+                width: 5%;
+                height: 1.5%;
+                border-radius: 15%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+
+                color: white;
+                padding: 0;
+                margin: 0;
+                font-size: 1vw;
+            }
             .icon {
                 width: 20%;
                 padding-left: 0px;
@@ -151,6 +168,16 @@
                 document.getElementById('btn_handicap').classList.toggle('btn-success');
                 document.getElementById('btn_handicap').classList.toggle('btn-secondary');
             }
+            function showBar(){
+                var x = document.getElementById("div-main-bar");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }          
+                document.getElementById('btn_bar').classList.toggle('btn-success');
+                document.getElementById('btn_bar').classList.toggle('btn-secondary');
+            }
         </script>
     </head>
 
@@ -176,15 +203,15 @@
                   <!-- <button type="button" onclick="myFunction()">Update</button> -->
                 <div id="div_toilet" style.display="block">  
                     <a onclick="showMale()" class="btn btn-success" id="btn-mens">
-                        <img class="icon2" src="figures/Toilets_male.svg" style=" width: 7%; padding: 0; margin: 0;" alt="Mens Toilets">
+                        <img class="icon2" src="figures/Toilets_male.svg" style=" height: 3vw; padding: 0; margin: 0;" alt="Mens Toilets">
                         Herre</a>
                     <a onclick="showFemale()" class="btn btn-success" id="btn_ladies">
-                        <img class="icon2" src="figures/Toilets_female.svg" style="width: 8%; padding: 0; margin: 0;" alt="Ladies Toilets">
+                        <img class="icon2" src="figures/Toilets_female.svg" style="height: 3vw; padding: 0; margin: 0;" alt="Ladies Toilets">
                         Dame</a>
                     <a onclick="showHandicap()" class="btn btn-success" id="btn_handicap" >
-                        <img class="icon2" src="figures/Toilets_handicap.svg" style="width: 15%; padding: 0; margin: 0;" alt="Handicap Toilets">
+                        <img class="icon2" src="figures/Toilets_handicap.svg" style="height: 3vw; padding: 0; margin: 0;" alt="Handicap Toilets">
                         HC</a>
-                    <a onclick="showHandicap()" class="btn btn-success" id="bar">
+                    <a onclick="showBar()" class="btn btn-success" id="btn_bar">
                         <img class="icon2" src="figures/Bar.svg" style="width: 15%; padding: 0; margin: 0;" alt="Bar">
                         Bar</a>
                      
@@ -302,8 +329,8 @@
             </div>
 
             <div id="div-main-bar" style.display="block">
-                <div class="mens_toilets" style="top: 58%; left: 70%;">
-                    <img class="img-fluid icon" src="figures/Bar.svg" style="height: 80%; padding: 0; margin: 0;" alt="Mens Toilet">
+                <div class="bar" style="top: 58%; left: 70%;">
+                    <img class="img-fluid icon" src="figures/Bar.svg" style="height: 80%; padding: 0; margin: 0;" alt="Bar">
                     <p style="padding: 1%; margin: 1%;">50 min</p>
                 </div>
                 
