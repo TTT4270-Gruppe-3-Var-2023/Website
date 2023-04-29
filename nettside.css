@@ -27,7 +27,7 @@ a{
     position: absolute;
 }
 .ladies_toilets {
-    background-color: yellowgreen;
+    background-color: orange;
     width: 5%;
     height: 1.5%;
     border-radius: 15%;
@@ -78,6 +78,7 @@ a{
     
     color: black;
     font: 8000 3vw Calibri;
+    font-weight: bold;
     -webkit-text-fill-color:white;
     -webkit-text-stroke: .02vw;
     padding: 0;
@@ -87,6 +88,7 @@ a{
 .mens_toilets p {
     color: black;
     font: 3vw Calibri;
+    font-weight: bold;
     -webkit-text-fill-color:white;
     -webkit-text-stroke: .02vw;
     padding: 0;
@@ -97,6 +99,7 @@ a{
     
     color: black;
     font: 3vw Calibri;
+    font-weight: bold;
     -webkit-text-fill-color:white;
     -webkit-text-stroke: .02vw;
     padding: 0;
@@ -107,6 +110,7 @@ a{
     
     color: black;
     font: 3vw Calibri;
+    font-weight: bold;
     -webkit-text-fill-color:white;
     -webkit-text-stroke: .02vw;
     padding: 0;
