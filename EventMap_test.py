@@ -1,33 +1,33 @@
-#!/usr/bin/env python
-
-# Imports libraries to be used
-import asyncio
-import random
-import websockets
-import json 
-from math import floor
-
-
 # Prints a statement that can be read in the terminal when the script is running
 print("EventMap.py is running")
+
 
 # Creates an empty set object
 CONNECTIONS = set()
 
 ##!/usr/bin/env python
 
-# Imports libraries to be used
-import asyncio
-import random
-import websockets
-import json 
-from math import floor
 
-# Prints a statement that can be read in the terminal when the script is running
-print("EventMap.py is running")
+# Importing libraries to use multiprcessing to run mqtt, uart and websockets
+import paho.mqtt.client as mqtt                                                 # MQTT
+import serial                                                                   # UART
+from time import sleep                                                          # UART
+import asyncio                                                                  # Websockets
+import websockets                                                               # Websockets
+import json                                                                     # Websockets
+from multiprocessing import Process, Manager                                    # Multiprocessing
+
+
+
+#Import libraries to simulate data
+from math import floor
+import random
+
 
 # Creates an empty set object
 CONNECTIONS = set()
+# Prints a statement that can be read in the terminal when the script is running
+print("EventMap.py is running")
 
 # Registers the clients that are connected to the server
 async def register(websocket):
@@ -98,15 +98,7 @@ async def websocket_main(statuses_dict):
     async with websockets.serve(register, "localhost", 5678):
         await broadcast_statuses(statuses_dict)
 
-'''
-UART communication on Raspberry Pi using Pyhton
-http://www.electronicwings.com
-'''
 
-# import serial
-from time import sleep
-import paho.mqtt.client as mqtt
-from multiprocessing import Process, Manager
 
 MQTT_ADDRESS = "192.168.**.***" #Her må resten av IP-addressen skrives inn
 MQTT_USER = "Gruppe3"
