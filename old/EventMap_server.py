@@ -15,7 +15,7 @@ import random
 from math import floor
 
 # Prints a statement that can be read in the terminal when the script starts up
-print("EventMap.py is running")
+print("EventMap_server.py is running")
 
 # Creates an empty set object
 CONNECTIONS = set()

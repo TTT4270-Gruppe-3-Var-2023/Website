@@ -1,0 +1,6 @@
+From Websockets offcial website
+Overview: https://websockets.readthedocs.io/en/stable/
+Guide with great example: https://websockets.readthedocs.io/en/stable/intro/index.html
+Quick start: https://websockets.readthedocs.io/en/stable/howto/quickstart.html#id1
+
+
