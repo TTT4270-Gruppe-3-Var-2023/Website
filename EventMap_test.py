@@ -1,33 +1,33 @@
-#!/usr/bin/env python
-
-# Imports libraries to be used
-import asyncio
-import random
-import websockets
-import json 
-from math import floor
-
-
 # Prints a statement that can be read in the terminal when the script is running
 print("EventMap.py is running")
+
 
 # Creates an empty set object
 CONNECTIONS = set()
 
 ##!/usr/bin/env python
 
-# Imports libraries to be used
-import asyncio
-import random
-import websockets
-import json 
-from math import floor
 
-# Prints a statement that can be read in the terminal when the script is running
-print("EventMap.py is running")
+# Importing libraries to use multiprcessing to run mqtt, uart and websockets
+import paho.mqtt.client as mqtt                                                 # MQTT
+import serial                                                                   # UART
+from time import sleep                                                          # UART
+import asyncio                                                                  # Websockets
+import websockets                                                               # Websockets
+import json                                                                     # Websockets
+from multiprocessing import Process, Manager                                    # Multiprocessing
+
+
+
+#Import libraries to simulate data
+from math import floor
+import random
+
 
 # Creates an empty set object
 CONNECTIONS = set()
+# Prints a statement that can be read in the terminal when the script is running
+print("EventMap.py is running")
 
 # Registers the clients that are connected to the server
 async def register(websocket):
@@ -52,13 +52,35 @@ async def broadcast_statuses(statuses_dict):
 
     while True:
         display_dict = {
-            "ladies_1": str(ladies_1_count),
-            "handicap_1": str(floor(random.randint(0, 1))),
+            "mens_0": str(floor(random.randint(0, 3))),
             "mens_1": str(floor(random.randint(0, 3))),
-            "ladies_2": str(floor(random.randint(0, 3))),
-            "handicap_2": str(floor(random.randint(0, 1))),
             "mens_2": str(floor(random.randint(0, 3))),
-            "bar_1": str(bar_1_wait)
+            "mens_3": str(floor(random.randint(0, 3))),
+            "mens_4": str(floor(random.randint(0, 3))),
+            "mens_5": str(floor(random.randint(0, 3))),
+            "mens_6": str(floor(random.randint(0, 3))),
+            
+            "ladies_0": str(ladies_1_count),
+            "ladies_1": str(floor(random.randint(0, 3))),
+            "ladies_2": str(floor(random.randint(0, 3))),
+            "ladies_3": str(floor(random.randint(0, 3))),
+            "ladies_4": str(floor(random.randint(0, 3))),
+            "ladies_5": str(floor(random.randint(0, 3))),
+            "ladies_6": str(floor(random.randint(0, 3))),
+            
+            "handicap_0": str(floor(random.randint(0, 1))),
+            "handicap_1": str(floor(random.randint(0, 1))),
+            "handicap_2": str(floor(random.randint(0, 1))),
+            "handicap_3": str(floor(random.randint(0, 1))),
+            "handicap_4": str(floor(random.randint(0, 1))),
+            "handicap_5": str(floor(random.randint(0, 1))),
+            "handicap_6": str(floor(random.randint(0, 1))),
+            
+            "bar_0": str(bar_1_wait),
+            "bar_1": str(floor(random.randint(1, 8))),
+            "bar_2": str(floor(random.randint(2, 10))),
+            "bar_3": str(floor(random.randint(3, 13))),
+            "bar_4": str(floor(random.randint(4, 15)))
         }
         
         # Serializing json  
@@ -76,15 +98,7 @@ async def websocket_main(statuses_dict):
     async with websockets.serve(register, "localhost", 5678):
         await broadcast_statuses(statuses_dict)
 
-'''
-UART communication on Raspberry Pi using Pyhton
-http://www.electronicwings.com
-'''
 
-import serial
-from time import sleep
-import paho.mqtt.client as mqtt
-from multiprocessing import Process, Manager
 
 MQTT_ADDRESS = "192.168.**.***" #Her må resten av IP-addressen skrives inn
 MQTT_USER = "Gruppe3"
