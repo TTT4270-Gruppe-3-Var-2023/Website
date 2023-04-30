@@ -81,7 +81,7 @@ UART communication on Raspberry Pi using Pyhton
 http://www.electronicwings.com
 '''
 
-import serial
+# import serial
 from time import sleep
 import paho.mqtt.client as mqtt
 from multiprocessing import Process, Manager
