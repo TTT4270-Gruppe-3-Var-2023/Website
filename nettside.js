@@ -90,7 +90,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     //update div 
                     let current_key = groupedData[group_key][i]
                     let custom_inner_HTML = '<img class="img-fluid icon" src="figures/Toilets_male.svg" style="height: 80%; padding: 0; margin: 0;" alt="Mens Toilet"><p style="padding: 1%; margin: 1%;">'
-                    document.getElementById(current_key).innerHTML = custom_inner_HTML + statuses_obj[current_key] + "</p>";
+                    document.getElementById(current_key).innerHTML = custom_inner_HTML + statuses_obj[current_key] + "/3</p>";
                     if (statuses_obj[current_key] == "0") {
                         document.getElementById(current_key).style.backgroundColor = "red";
                     }
@@ -111,7 +111,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     //update div 
                     let current_key = groupedData[group_key][i]
                     let custom_inner_HTML = '<img class="img-fluid icon" src="figures/Toilets_female.svg" style="height: 80%; padding: 0; margin: 0;" alt="Ladies Toilet"><p style="padding: 1%; margin: 1%;">'
-                    document.getElementById(current_key).innerHTML = custom_inner_HTML + statuses_obj[current_key] + "</p>";
+                    document.getElementById(current_key).innerHTML = custom_inner_HTML + statuses_obj[current_key] + "/3</p>";
                     if (statuses_obj[current_key] == "0") {
                         document.getElementById(current_key).style.backgroundColor = "red";
                     }
@@ -132,7 +132,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     //update div 
                     let current_key = groupedData[group_key][i]
                     let custom_inner_HTML = '<img class="img-fluid icon" src="figures/Toilets_handicap.svg" style="height: 80%; padding: 0; margin: 0;" alt="Handicap Toilet"><p style="padding: 1%; margin: 1%;">'
-                    document.getElementById(current_key).innerHTML = custom_inner_HTML + statuses_obj[current_key] + "</p>";
+                    document.getElementById(current_key).innerHTML = custom_inner_HTML + statuses_obj[current_key] + "/1</p>";
                     if (statuses_obj[current_key] == "0") {
                         document.getElementById(current_key).style.backgroundColor = "red";
                     }
@@ -153,15 +153,15 @@ window.addEventListener("DOMContentLoaded", () => {
                     //update div 
                     let current_key = groupedData[group_key][i]
                     let custom_inner_HTML = '<img class="img-fluid icon" src="figures/Bar.svg" style="height: 80%; padding: 0; margin: 0;" alt="Bar"><p  style="padding: 1%; margin: 1%;">'
-                    document.getElementById(current_key).innerHTML = custom_inner_HTML + statuses_obj[current_key] + "</p>";
-                    if (statuses_obj[current_key] == "0") {
-                        document.getElementById(current_key).style.backgroundColor = "red";
+                    document.getElementById(current_key).innerHTML = custom_inner_HTML + statuses_obj[current_key] + " min</p>";
+                    if (parseFloat( statuses_obj[current_key]) <= 4) {
+                        document.getElementById(current_key).style.backgroundColor = "green";
                     }
-                    else if (statuses_obj[current_key] == "1") {
+                    else if (parseFloat( statuses_obj[current_key]) <= 8) {
                         document.getElementById(current_key).style.backgroundColor = "orange";
                     }
                     else {
-                        document.getElementById(current_key).style.backgroundColor = "green";
+                        document.getElementById(current_key).style.backgroundColor = "red";
                     }
                     
                     
