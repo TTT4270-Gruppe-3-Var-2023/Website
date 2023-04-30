@@ -7,157 +7,11 @@
     </header>
     
     <head>
-        <style>
-            #div_bar {
-                display: none;
-            }
-            #div_toilet {
-                display: block;
-            }
-            p,h1,h2,label {
-                color: white;
-            }
-            a{
-                font-size: 2vw;
-            }
-            .mens_toilets {
-                background-color: green;
-                width: 5%;
-                height: 1.5%;
-                border-radius: 15%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 0;
-                margin: 0;
-                position: absolute;
-            }
-            .ladies_toilets {
-                background-color: yellowgreen;
-                width: 5%;
-                height: 1.5%;
-                border-radius: 15%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 0;
-                margin: 0;
-                position: absolute;
-            }
-            .handicap_toilets {
-                background-color: red;
-                width: 5%;
-                height: 1.5%;
-                border-radius: 15%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 0;
-                margin: 0;
-                position: absolute;
-            }
-            .icon {
-                width: 20%;
-                padding-left: 0px;
-                padding-right: 10px;
-                margin: 0;
-            }
-            .icon2 {
-                width: 10%;
-                padding-left: 0px;
-                padding-right: 10px;
-                margin: 0;
-            }
-            .ladies_toilets p {
-                color: white;
-                padding: 0;
-                margin: 0;
-                font-size: 1vw;
-            }
-            .mens_toilets p {
-                color: white;
-                padding: 0;
-                margin: 0;
-                font-size: 1vw;
-            }
-            .handicap_toilets p {
-                color: white;
-                padding: 0;
-                margin: 0;
-                font-size: 1vw;
-            }
-            .btn{
-                width: 20%;
-                height: 50%;
-            }
-
-        </style>
-        <script>
-            function random(start, stop) {
-                return Math.round(Math.random()*(stop-start) + start);
-            }
-            
-            
-            function myFunction() {
-                document.getElementById("btn_ladies").innerHTML = "Damedo: "+random(0,10) + " min";
-                document.getElementById("btn-mens").innerHTML = "Herredo: "+random(0,10) + " min";
-                document.getElementById("bar a").innerHTML = "Bar A: "+random(0,10) + " min";
-            }
-            
-            function showToilett(){
-                var div_toilet = document.getElementById("div_toilet");
-                var div_bar = document.getElementById("div_bar");
-                div_bar.style.display = "none";                
-                div_toilet.style.display = "block";
-                var div_toilets = document.getElementById("div-main-toilets");
-                div_toilets.style.display = "block";                
-            }
-            function showBar(){
-                var div_toilets = document.getElementById("div-main-toilets");
-                div_toilets.style.display = "none";                
-                var div_toilet = document.getElementById("div_toilet");
-                div_toilet.style.display = "none";                
-                var div_bar = document.getElementById("div_bar");
-                div_bar.style.display = "block";
-
-            }
-            function showMale(){
-                var x = document.getElementById("main-mens_toilets");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-                document.getElementById('btn-mens').classList.toggle('btn-success');
-                document.getElementById('btn-mens').classList.toggle('btn-secondary');
-            }
-            function showFemale(){
-                var x = document.getElementById("main-ladies_toilets");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }                
-                document.getElementById('btn_ladies').classList.toggle('btn-success');
-                document.getElementById('btn_ladies').classList.toggle('btn-secondary');
-            }
-            function showHandicap(){
-                var x = document.getElementById("main-handicap");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }          
-                document.getElementById('btn_handicap').classList.toggle('btn-success');
-                document.getElementById('btn_handicap').classList.toggle('btn-secondary');
-            }
-        </script>
+        <link rel="stylesheet" href="nettside.css">
+        <script type="text/javascript" src="nettside.js"></script>
     </head>
 
     
-
-
-
     <body onload="showToilett()" style="background-color: black;">
         <div>
             <h1 class="text-center">Trondheim Spektrum</h1>
@@ -176,15 +30,15 @@
                   <!-- <button type="button" onclick="myFunction()">Update</button> -->
                 <div id="div_toilet" style.display="block">  
                     <a onclick="showMale()" class="btn btn-success" id="btn-mens">
-                        <img class="icon2" src="figures/Toilets_male.svg" style=" width: 7%; padding: 0; margin: 0;" alt="Mens Toilets">
+                        <img class="icon2" src="figures/Toilets_male.svg" style=" height: 3vw; padding: 0; margin: 0;" alt="Mens Toilets">
                         Herre</a>
                     <a onclick="showFemale()" class="btn btn-success" id="btn_ladies">
-                        <img class="icon2" src="figures/Toilets_female.svg" style="width: 8%; padding: 0; margin: 0;" alt="Ladies Toilets">
+                        <img class="icon2" src="figures/Toilets_female.svg" style="height: 3vw; padding: 0; margin: 0;" alt="Ladies Toilets">
                         Dame</a>
                     <a onclick="showHandicap()" class="btn btn-success" id="btn_handicap" >
-                        <img class="icon2" src="figures/Toilets_handicap.svg" style="width: 15%; padding: 0; margin: 0;" alt="Handicap Toilets">
+                        <img class="icon2" src="figures/Toilets_handicap.svg" style="height: 3vw; padding: 0; margin: 0;" alt="Handicap Toilets">
                         HC</a>
-                    <a onclick="showHandicap()" class="btn btn-success" id="bar">
+                    <a onclick="showBar()" class="btn btn-success" id="btn_bar">
                         <img class="icon2" src="figures/Bar.svg" style="width: 15%; padding: 0; margin: 0;" alt="Bar">
                         Bar</a>
                      
@@ -302,9 +156,28 @@
             </div>
 
             <div id="div-main-bar" style.display="block">
-                <div class="mens_toilets" style="top: 58%; left: 70%;">
-                    <img class="img-fluid icon" src="figures/Bar.svg" style="height: 80%; padding: 0; margin: 0;" alt="Mens Toilet">
-                    <p style="padding: 1%; margin: 1%;">50 min</p>
+                <div class="bar_location" id="bar_0" style="top: 58%; left: 70%;">
+                    <img class="img-fluid icon" src="figures/Bar.svg" style="height: 80%; padding: 0; margin: 0;" alt="Bar">
+                    <p  style="padding: 1%; margin: 1%;">2 min</p>
+                </div>
+                
+                <div class="bar_location" id="bar_1" style="top: 38%; left: 50%;">
+                    <img class="img-fluid icon" src="figures/Bar.svg" style="height: 80%; padding: 0; margin: 0;" alt="Bar">
+                    <p  style="padding: 1%; margin: 1%;">20 min</p>
+                </div>
+                
+                <div class="bar_location" id="bar_2" style="top: 28%; left: 50%;">
+                    <img class="img-fluid icon" src="figures/Bar.svg" style="height: 80%; padding: 0; margin: 0;" alt="Bar">
+                    <p style="padding: 1%; margin: 1%;">5 min</p>
+                </div>
+                <div class="bar_location" id="bar_3" style="top: 38%; left: 15%;">
+                    <img class="img-fluid icon" src="figures/Bar.svg" style="height: 80%; padding: 0; margin: 0;" alt="Bar">
+                    <p style="padding: 1%; margin: 1%;">10 min</p>
+                </div>
+                
+                <div class="bar_location" id="bar_4" style="top: 28%; left: 15%;">
+                    <img class="img-fluid icon" src="figures/Bar.svg" style="height: 80%; padding: 0; margin: 0;" alt="Bar">
+                    <p style="padding: 1%; margin: 1%;">15 min</p>
                 </div>
                 
             </div>

@@ -1,0 +1,124 @@
+#div_bar {
+    display: none;
+}
+#div_toilet {
+    display: block;
+}
+p,h1,h2,label {
+    color: white;
+    /* font: 8000 2vw Calibri;
+    -webkit-text-fill-color:white;
+    -webkit-text-stroke: .3px; */
+}
+a{
+    font-size: 3vw;
+    
+}
+.mens_toilets {
+    background-color: green;
+    width: 5%;
+    height: 1.5%;
+    border-radius: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+}
+.ladies_toilets {
+    background-color: orange;
+    width: 5%;
+    height: 1.5%;
+    border-radius: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+}
+.handicap_toilets {
+    background-color: red;
+    width: 5%;
+    height: 1.5%;
+    border-radius: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+}
+.bar_location {
+    background-color: red;
+    width: 5%;
+    height: 1.5%;
+    border-radius: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+}
+.icon {
+    width: 20%;
+    padding-left: 0px;
+    padding-right: 10px;
+    margin: 0;
+}
+.icon2 {
+    width: 10%;
+    padding-left: 0px;
+    padding-right: 10px;
+    margin: 0;
+}
+.ladies_toilets p {
+    
+    color: black;
+    font: 8000 3vw Calibri;
+    font-weight: bold;
+    -webkit-text-fill-color:white;
+    -webkit-text-stroke: .02vw;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2vw;
+}
+.mens_toilets p {
+    color: black;
+    font: 3vw Calibri;
+    font-weight: bold;
+    -webkit-text-fill-color:white;
+    -webkit-text-stroke: .02vw;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2vw;
+}
+.handicap_toilets p {
+    
+    color: black;
+    font: 3vw Calibri;
+    font-weight: bold;
+    -webkit-text-fill-color:white;
+    -webkit-text-stroke: .02vw;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2vw;
+}
+.bar_location p {
+    
+    color: black;
+    font: 3vw Calibri;
+    font-weight: bold;
+    -webkit-text-fill-color:white;
+    -webkit-text-stroke: .02vw;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2vw;
+}
+.btn{
+    width: 20%;
+    height: 50%;
+}
+
