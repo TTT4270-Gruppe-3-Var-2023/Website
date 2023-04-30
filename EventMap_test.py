@@ -52,13 +52,35 @@ async def broadcast_statuses(statuses_dict):
 
     while True:
         display_dict = {
-            "ladies_1": str(ladies_1_count),
-            "handicap_1": str(floor(random.randint(0, 1))),
+            "mens_0": str(floor(random.randint(0, 3))),
             "mens_1": str(floor(random.randint(0, 3))),
-            "ladies_2": str(floor(random.randint(0, 3))),
-            "handicap_2": str(floor(random.randint(0, 1))),
             "mens_2": str(floor(random.randint(0, 3))),
-            "bar_1": str(bar_1_wait)
+            "mens_3": str(floor(random.randint(0, 3))),
+            "mens_4": str(floor(random.randint(0, 3))),
+            "mens_5": str(floor(random.randint(0, 3))),
+            "mens_6": str(floor(random.randint(0, 3))),
+            
+            "ladies_0": str(ladies_1_count),
+            "ladies_1": str(floor(random.randint(0, 3))),
+            "ladies_2": str(floor(random.randint(0, 3))),
+            "ladies_3": str(floor(random.randint(0, 3))),
+            "ladies_4": str(floor(random.randint(0, 3))),
+            "ladies_5": str(floor(random.randint(0, 3))),
+            "ladies_6": str(floor(random.randint(0, 3))),
+            
+            "handicap_0": str(floor(random.randint(0, 1))),
+            "handicap_1": str(floor(random.randint(0, 1))),
+            "handicap_2": str(floor(random.randint(0, 1))),
+            "handicap_3": str(floor(random.randint(0, 1))),
+            "handicap_4": str(floor(random.randint(0, 1))),
+            "handicap_5": str(floor(random.randint(0, 1))),
+            "handicap_6": str(floor(random.randint(0, 1))),
+            
+            "bar_0": str(bar_1_wait),
+            "bar_1": str(floor(random.randint(1, 8))),
+            "bar_2": str(floor(random.randint(2, 10))),
+            "bar_3": str(floor(random.randint(3, 13))),
+            "bar_4": str(floor(random.randint(4, 15)))
         }
         
         # Serializing json  
