@@ -41,16 +41,17 @@ async def register(websocket):
 async def broadcast_statuses(statuses_dict):
     print("broadcasting") 
     
-    if statuses_dict['ult_state'] < 10:
-        ult_var = 1
-    else:
-        ult_var = 0
-
-    ladies_1_count = 3 - statuses_dict['pir_state'] - ult_var - statuses_dict['dop_state']
-
-    bar_1_wait = statuses_dict['uart_state'] * 3 # Number of people in queue times average wait time in minutes
-
     while True:
+
+        if statuses_dict['ult_state'] < 10:
+            ult_var = 1
+        else:
+            ult_var = 0
+
+        ladies_1_count = 3 - statuses_dict['pir_state'] - ult_var - statuses_dict['dop_state']
+
+        bar_1_wait = floor(float(statuses_dict['uart_state']) * 3) # Number of people in queue times average wait time in minutes
+
         display_dict = {
             "mens_0": str(floor(random.randint(0, 3))),
             "mens_1": str(floor(random.randint(0, 3))),
@@ -83,6 +84,8 @@ async def broadcast_statuses(statuses_dict):
             "bar_4": str(floor(random.randint(4, 15)))
         }
         
+        print(display_dict)
+
         # Serializing json  
         statuses_json = json.dumps(display_dict, indent = 4)
         
@@ -90,8 +93,8 @@ async def broadcast_statuses(statuses_dict):
         websockets.broadcast(CONNECTIONS, statuses_json)
         await asyncio.sleep(random.randint(2, 5))
         
-        print('display_dict')
-        print(display_dict)
+        # print('display_dict')
+        # print(display_dict)
 
 # Broadscasts on port 5678
 async def websocket_main(statuses_dict):
@@ -128,9 +131,9 @@ def on_message(statuses_dict, client, userdata, msg):
 
     print(topic + ' ' + payload)    
 
-def loop_a(statuses_dict):
-    print('loop a is running (mqtt)')
-    print(statuses_dict)
+def mqtt_loop_function(statuses_dict):
+    print('mqtt')
+    # print(statuses_dict)
 
     mqtt_client = mqtt.Client()
     mqtt_client.username_pw_set(MQTT_USER, MQTT_PASSWORD)
@@ -139,23 +142,33 @@ def loop_a(statuses_dict):
     mqtt_client.connect(MQTT_ADDRESS, 1883)
     mqtt_client.loop_forever()
 
-def loop_b(statuses_dict):
-    print('loop b is running (uart)')
-    print(statuses_dict)
-    ser = serial.Serial ("/dev/ttyS0", 9600)    #Open port with baud rate
-    while True:
-       received_data = ser.read()              #read serial port
-       sleep(0.03)
-       data_left = ser.inWaiting()             #check for remaining byte
-       received_data += ser.read(data_left)
-       statuses_dict['uart_state'] = float(str(received_data)[2:-1])
-       
-       print('uart_state: ')
-       print(statuses_dict['uart_state'])                   #print received data
+def uart_loop_function(statuses_dict):
+    isRpi = True
+    if (isRpi):
+        print('uart is running')
+        print(statuses_dict)
+        ser = serial.Serial ("/dev/ttyS0", 9600)    #Open port with baud rate
+        while True:
+            received_data = ser.read()              #read serial port
+            sleep(0.03)
+            data_left = ser.inWaiting()             #check for remaining byte
+            received_data += ser.read(data_left)
+            processed_data = float(str(received_data)[2:-1])
+            statuses_dict['uart_state'] = str(processed_data)
+        
+            print('uart_state: ')
+            print(statuses_dict['uart_state'])                   #print received data
 
-def loop_c(statuses_dict):
-    print('loop c is running (websockets)')
-    print(statuses_dict)
+    else:
+        while(True):    
+            processed_data = (random.randint(1, 8)+random.randint(1, 8))/2
+            statuses_dict['uart_state'] = str(processed_data)
+            print(statuses_dict['uart_state'])                   #print received data
+            sleep(5.5)
+
+def websocket_loop_function(statuses_dict):
+    print('websockets is running')
+    # print(statuses_dict)
     asyncio.run(websocket_main(statuses_dict))
 
 if __name__ == '__main__':
@@ -169,9 +182,9 @@ if __name__ == '__main__':
         statuses_dict['uart_state'] = 0.0
         print(statuses_dict)
 
-        p_1 = Process(target=loop_a, args=(statuses_dict,))
-        p_2 = Process(target=loop_b, args=(statuses_dict,))
-        p_3 = Process(target=loop_c, args=(statuses_dict,))
+        p_1 = Process(target=mqtt_loop_function, args=(statuses_dict,))
+        p_2 = Process(target=uart_loop_function, args=(statuses_dict,))
+        p_3 = Process(target=websocket_loop_function, args=(statuses_dict,))
         
         p_1.start()
         p_2.start()
