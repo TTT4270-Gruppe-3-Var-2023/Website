@@ -10,12 +10,17 @@ p,h1,h2,label {
     -webkit-text-fill-color:white;
     -webkit-text-stroke: .3px; */
 }
+h3{
+    color: white;
+    margin-top: 1vw;
+}
+
 a{
     font-size: 3vw;
     
 }
 .mens_toilets {
-    background-color: green;
+    background-color: red;
     width: 5%;
     height: 1.5%;
     border-radius: 15%;
@@ -27,7 +32,7 @@ a{
     position: absolute;
 }
 .ladies_toilets {
-    background-color: orange;
+    background-color: red;
     width: 5%;
     height: 1.5%;
     border-radius: 15%;
