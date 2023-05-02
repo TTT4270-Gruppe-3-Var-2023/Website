@@ -69,7 +69,7 @@ function showBar(){
 
 window.addEventListener("DOMContentLoaded", () => {
     // Creates a websocket connection to the port 5678
-    const websocket = new WebSocket("ws://localhost:5678/");
+    const websocket = new WebSocket("ws://192.168.43.206:5678");
     
     // Upon reception of a package, it turns it from JSON to JS-object, updates the statuses and sets the background-color accordingly
     websocket.onmessage = ({ data }) => {
