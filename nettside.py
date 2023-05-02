@@ -80,9 +80,9 @@ async def broadcast_statuses(statuses_dict):
             "handicap_5": str(floor(random.randint(0, 1))),
             "handicap_6": str(floor(random.randint(0, 1))),
             
-            "bar_0": str(bar_1_wait),
-            "bar_1": str(floor(random.randint(1, 8))),
-            "bar_2": str(floor(random.randint(2, 10))),
+            "bar_0": str(floor(random.randint(1, 8))),
+            "bar_1": str(floor(random.randint(2, 10))),
+            "bar_2": str(bar_1_wait),
             "bar_3": str(floor(random.randint(3, 13))),
             "bar_4": str(floor(random.randint(4, 15)))
         }
@@ -149,7 +149,7 @@ def mqtt_loop_function(statuses_dict):
     mqtt_client.loop_forever()
 
 def uart_loop_function(statuses_dict):
-    isRpi = True
+    isRpi = False
     if (isRpi):
         print('uart is running')
         #print(statuses_dict)
